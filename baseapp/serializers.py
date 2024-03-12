@@ -14,12 +14,22 @@ class SpecializationSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class DoctorSerializer(serializers.ModelSerializer):
-    specialization = SpecializationSerializer()
-    qualifications = QualificationSerializer(many=True)
+    specialization = serializers.CharField(source='specialization.name')
+    qualifications = serializers.CharField(source='get_qualifications_display', read_only=True)
 
     class Meta:
         model = Doctor
-        fields = '__all__'
+        fields = [
+            'id',
+            'name',
+            'qualifications',
+            'specialization',
+            'specialization_icon',
+            'image',
+            'email',
+            'office_number',
+            'available',
+        ]
 
 class PatientSerializer(serializers.ModelSerializer):
     class Meta:

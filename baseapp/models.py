@@ -17,6 +17,10 @@ class Specialization(models.Model):
         return self.name
 
 class Doctor(models.Model):
+
+    def get_qualifications_display(self):
+        return ', '.join(q.name for q in self.qualifications.all())
+    
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     email = models.EmailField()
@@ -25,6 +29,7 @@ class Doctor(models.Model):
     qualifications = models.ManyToManyField(Qualification)
     years_of_experience = models.PositiveIntegerField()
     image = models.ImageField(upload_to='doctors/', null=True, blank=True)
+    available=models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
