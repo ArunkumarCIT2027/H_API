@@ -1,5 +1,9 @@
 from django.contrib import admin
+<<<<<<< HEAD
 from .models import Doctor, Patient, Appointment, MedicalRecord, Conversation, Message,Specialization,Qualification
+=======
+from .models import Doctor, Patient, Appointment, MedicalRecord, Conversation, Message,Qualification,Specialization
+>>>>>>> origin/main
 
 class DoctorAdmin(admin.ModelAdmin):
     list_display = ('user', 'specialization', 'office_number', 'email')
