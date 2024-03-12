@@ -25,8 +25,7 @@ SECRET_KEY = 'django-insecure-c9+n)kvw6y98u2rykz(dyweyjzpskhm=!8_9oh#!7g04v+@ez3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -80,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'healthapi',                      
         'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'PASSWORD': 'Arun2645s',
         'HOST': 'localhost',
         'PORT': '5432',
     }
