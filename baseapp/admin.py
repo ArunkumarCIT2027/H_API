@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Doctor, Patient, Appointment, MedicalRecord, Conversation, Message
+from .models import Doctor, Patient, Appointment, MedicalRecord, Conversation, Message,Specialization,Qualification
 
 class DoctorAdmin(admin.ModelAdmin):
     list_display = ('user', 'specialization', 'office_number', 'email')
@@ -31,4 +31,6 @@ admin.site.register(Appointment, AppointmentAdmin)
 admin.site.register(MedicalRecord, MedicalRecordAdmin)
 admin.site.register(Conversation, ConversationAdmin)
 admin.site.register(Message, MessageAdmin)
+admin.site.register(Qualification)
+admin.site.register(Specialization)
 
