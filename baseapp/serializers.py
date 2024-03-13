@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from django.contrib.auth.models import User
 from .models import Doctor, Patient, Appointment, MedicalRecord, Qualification, Specialization, Conversation, Message
 from django.utils import timezone
 
@@ -14,17 +15,18 @@ class SpecializationSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class DoctorSerializer(serializers.ModelSerializer):
+    user = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
     specialization = serializers.CharField(source='specialization.name')
     qualifications = serializers.CharField(source='get_qualifications_display', read_only=True)
 
     class Meta:
         model = Doctor
         fields = [
+            'user',
             'id',
             'name',
             'qualifications',
             'specialization',
-            'specialization_icon',
             'image',
             'email',
             'office_number',

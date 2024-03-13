@@ -37,7 +37,7 @@ def register_doctor(request):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
-@permission_classes([IsAuthenticated])
+# @permission_classes([IsAuthenticated])
 def register_user(request):
     if request.method == 'POST':
         serializer = PatientSerializer(data=request.data)
