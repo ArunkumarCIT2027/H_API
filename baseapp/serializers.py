@@ -24,7 +24,6 @@ class DoctorSerializer(serializers.ModelSerializer):
             'name',
             'qualifications',
             'specialization',
-            'specialization_icon',
             'image',
             'email',
             'office_number',

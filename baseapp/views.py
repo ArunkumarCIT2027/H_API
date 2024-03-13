@@ -125,7 +125,7 @@ def logout_user(request):
 #         return PasswordResetEmailView.as_view()(request)
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+# @permission_classes([IsAuthenticated])
 def get_all_doctors(request):
     if request.method == 'GET':
         doctors = Doctor.objects.all()
